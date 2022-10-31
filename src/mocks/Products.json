@@ -1,34 +1,26 @@
 [
     {
         "id": "1234",
-        "name": "Laptop",
-        "price": "1.4",
+        "name": "Computadora LENOVO i5, intel. iRISx 2022",
+        "price": "550,99",
         "owner": "0x00",
-        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1664472289661",
+        "image": "https://d500.epimg.net/cincodias/imagenes/2022/02/21/gadgets/1645453218_839118_1645453324_noticia_normal.jpg",
         "flag": ""
     },
     {
         "id": "8442",
-        "name": "Laptop",
-        "price": "1.9",
+        "name": "Computadora LENOVO i5, intel. iRISx 2022",
+        "price": "550,99",
         "owner": "0x00",
-        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1664472289661",
+        "image": "https://d500.epimg.net/cincodias/imagenes/2022/02/21/gadgets/1645453218_839118_1645453324_noticia_normal.jpg",
         "flag": ""
     },
     {
         "id": "9384",
-        "name": "Laptop",
-        "price": "9.2",
+        "name": "Computadora LENOVO i5, intel. iRISx 2022",
+        "price": "550,99",
         "owner": "0x00",
-        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1664472289661",
-        "flag": ""
-    },
-    {
-        "id": "9734",
-        "name": "Laptop",
-        "price": "9.2",
-        "owner": "0x00",
-        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1664472289661",
+        "image": "https://d500.epimg.net/cincodias/imagenes/2022/02/21/gadgets/1645453218_839118_1645453324_noticia_normal.jpg",
         "flag": ""
     }
 ]

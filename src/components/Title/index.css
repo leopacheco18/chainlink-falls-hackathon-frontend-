@@ -1,0 +1,10 @@
+.title-name{
+    margin : 20px 0px;
+    font-size : 18px;
+    font-weight : 500;
+    border-bottom : 3px solid #2BC6C8;
+}
+
+.name{
+    margin-bottom:5px;
+}

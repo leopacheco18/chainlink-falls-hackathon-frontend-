@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 
 import { receiveProductsRequest } from "./store/product/actions";
 
+import Home from "./pages/home/Home";
+
 const App = ({ products, receiveProducts }) => {
 
   useEffect(() => {
@@ -12,7 +14,7 @@ const App = ({ products, receiveProducts }) => {
 
   return (
     <div className="app">
-      Hello
+      <Home />
     </div>
   )
 }
