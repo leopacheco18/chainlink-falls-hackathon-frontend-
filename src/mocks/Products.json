@@ -1,0 +1,34 @@
+[
+    {
+        "id": "1234",
+        "name": "Laptop",
+        "price": "1.4",
+        "owner": "0x00",
+        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1664472289661",
+        "flag": ""
+    },
+    {
+        "id": "8442",
+        "name": "Laptop",
+        "price": "1.9",
+        "owner": "0x00",
+        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1664472289661",
+        "flag": ""
+    },
+    {
+        "id": "9384",
+        "name": "Laptop",
+        "price": "9.2",
+        "owner": "0x00",
+        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1664472289661",
+        "flag": ""
+    },
+    {
+        "id": "9734",
+        "name": "Laptop",
+        "price": "9.2",
+        "owner": "0x00",
+        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1664472289661",
+        "flag": ""
+    }
+]
