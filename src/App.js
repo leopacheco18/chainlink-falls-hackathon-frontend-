@@ -6,25 +6,36 @@ import { receiveProductsRequest } from "./store/product/actions";
 
 import Home from "./pages/home/Home";
 
-const App = ({ products, receiveProducts }) => {
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Chat from "./pages/chat/Chat";
 
+const App = ({ products, receiveProducts }) => {
   useEffect(() => {
-    receiveProducts()
-  }, [])
+    receiveProducts();
+  }, []);
 
   return (
     <div className="app">
-      <Home />
+      <Router>
+            <Header />
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/chat" element={<Chat />} />
+          </Routes>
+        </div>
+      </Router>
     </div>
-  )
-}
+  );
+};
 
-const mapStateToProps = state => ({
-  products: state.product
-})
+const mapStateToProps = (state) => ({
+  products: state.product,
+});
 
-const mapDispatchToProps = dispatch => ({
-  receiveProducts: () => dispatch(receiveProductsRequest())
-})
+const mapDispatchToProps = (dispatch) => ({
+  receiveProducts: () => dispatch(receiveProductsRequest()),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

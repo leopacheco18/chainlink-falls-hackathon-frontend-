@@ -1,0 +1,78 @@
+
+.header-container{
+    padding: 15px 10vw;
+    box-shadow: 0px 0px 7.5px rgba(0, 0, 0, 0.25);
+    border-radius: 0 0 40px 40px;
+    position: fixed;
+    width: 100%;
+    background-color: white;
+  }
+  
+  .logo-container > img{
+    height: 70px;
+    cursor: pointer;
+  }
+  
+  .center-vertically{
+    height: 100%;
+    margin: auto;
+  }
+  
+  .search-bar .ant-input{
+    border-radius: 30px 0 0 30px;
+  }
+  
+  
+  .search-bar .ant-btn-icon-only{
+    border-radius: 0 30px 30px 0 !important;
+  }
+  
+  .metamask-container{
+    width: 75%;
+    margin-left: 25%;
+  }
+  
+  .metamask-button{ 
+    width: 100%;
+    background-color: white;
+    padding: 5px 10px;
+    border: 1px solid #2BC6C8;
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px #2BC6C8;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .metamask-button:hover{ 
+    background-color: #2BC6C8;
+    color: white;
+  }
+  
+  .metamask-button img {
+    margin: auto;
+    height: 30px;
+  }
+
+  .icon-header{
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 2rem;
+    text-align: right;
+    cursor: pointer;
+  }
+
+
+  .custom-menu-header{
+    padding: 0 !important;
+  }
+
+  .custom-menu-header .ant-dropdown-menu-item{
+    color: #2BC6C8 !important;
+    text-align: center !important;
+    border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+    padding: 10px 12px !important;
+    font-size: 1rem;
+  }
+
+  .custom-menu-header .ant-dropdown-menu-item-icon{
+    font-size: 1.5rem;
+  }

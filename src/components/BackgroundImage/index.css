@@ -1,0 +1,8 @@
+.background-image{
+    width: 100vw;
+    margin-left: -10vw;
+    margin-right: -10vw;
+    height: 50vh;
+    background-image: url('../../assets/image/background-image.png');
+    background-position: center;
+}

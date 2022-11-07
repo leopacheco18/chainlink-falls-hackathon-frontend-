@@ -1,24 +1,26 @@
-import React from 'react';
+import React from "react";
 
-import ReactDOM from 'react-dom/client';
+import ReactDOM from "react-dom/client";
 
-import { Provider } from 'react-redux';
+import { Provider } from "react-redux";
 
-import store from './store';
+import store from "./store";
 
-import './index.css';
+import "./index.css";
 
-import 'antd/dist/antd.css';
+import "antd/dist/antd.css";
 
-import App from './App';
+import App from "./App";
+import { ThirdwebProvider } from "@thirdweb-dev/react";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <ThirdwebProvider>
+        <App />
+      </ThirdwebProvider>
     </Provider>
   </React.StrictMode>
 );
-

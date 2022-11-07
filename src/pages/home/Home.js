@@ -1,4 +1,5 @@
 import React from "react";
+import BackgroundImage from "../../components/BackgroundImage";
 
 import Categories from "../../components/Categories";
 
@@ -11,7 +12,9 @@ const Home = () => {
     return (
         <div className="home">
 
-            <Products />
+            <BackgroundImage />
+{/* 
+            <Products /> */}
 
             <Categories />
 

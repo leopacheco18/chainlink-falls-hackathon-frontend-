@@ -45,7 +45,7 @@ const Categories = () => {
 
             <Title name="Categories" />
 
-            <Row gutter={16}>
+            <Row gutter={48}>
                 {renderedCategories}
             </Row>
         </div>
