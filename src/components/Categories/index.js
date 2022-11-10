@@ -4,14 +4,20 @@ import { Col, Row } from 'antd';
 
 import { 
     AiFillAppstore, 
-    AiFillCustomerService, 
-    AiFillGift, 
     AiFillPicture, 
-    AiFillRobot, 
-    AiFillRocket, 
-    AiFillSkin, 
-    AiFillTwitterCircle 
 } from "react-icons/ai";
+
+import { 
+    GiLipstick,
+    GiUnderwearShorts,
+    GiSkirt
+} from "react-icons/gi";
+
+import {
+    MdOutlineToys,
+    MdPets,
+    MdPhoneIphone
+} from "react-icons/md"
 
 import Category from "../Category";
 
@@ -20,21 +26,21 @@ import Title from "../Title";
 import './index.css'
 
 const CATEGORIES = [
-    { name: 'Beauty', icon: <AiFillGift /> },
-    { name: 'Clothes Man', icon: <AiFillRobot /> },
-    { name: 'Clothes Women', icon: <AiFillSkin /> },
+    { name: 'Beauty', icon: <GiLipstick /> },
+    { name: 'Clothes Man', icon: <GiUnderwearShorts /> },
+    { name: 'Clothes Women', icon: <GiSkirt /> },
     { name: 'NFT', icon: <AiFillPicture /> },
-    { name: 'Pets', icon: <AiFillTwitterCircle /> },
-    { name: 'Toys', icon: <AiFillRocket /> },
-    { name: 'Technology', icon: <AiFillCustomerService /> },
+    { name: 'Pets', icon: <MdPets /> },
+    { name: 'Toys', icon: <MdOutlineToys /> },
+    { name: 'Technology', icon: <MdPhoneIphone /> },
     { name: 'Others', icon: <AiFillAppstore /> },
 ]
 
 const Categories = () => {
 
-    const renderedCategories = Object.values(CATEGORIES).map(category => {
+    const renderedCategories = Object.values(CATEGORIES).map((category,key) => {
         return (
-            <Col className="gutter-row" span={6}>
+            <Col className="gutter-row" span={6} key={key}>
                 <Category {...category} />
             </Col>
         )

@@ -10,12 +10,14 @@ import {
   MessageOutlined,
   PlusCircleFilled,
 } from "@ant-design/icons";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const location = useLocation();
+  console.log(location);
   const connectWithMetamask = useMetamask();
   const address = useAddress();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   useEffect(() => {
     console.log(address);
   }, [address]);
@@ -34,23 +36,28 @@ const Header = () => {
 
   const menu = (
     <Menu
-    className="custom-menu-header"
+      className="custom-menu-header"
       items={[
         {
           key: "1",
+          onClick: () => {
+            navigate("/profile/" + address);
+          },
           label: shortAddress(),
-          icon: <WalletFilled />
+          icon: <WalletFilled />,
         },
         {
           key: "2",
-          onClick: () => {navigate('/chat')},
-          label: 'Chat',
+          onClick: () => {
+            navigate("/chat");
+          },
+          label: "Chat",
           icon: <MessageOutlined />,
         },
         {
           key: "3",
-          label: 'Add a product',
-          icon: <PlusCircleFilled />
+          label: "Add a product",
+          icon: <PlusCircleFilled />,
         },
         {
           key: "4",
@@ -61,13 +68,37 @@ const Header = () => {
     />
   );
 
+  const search = (value) => {
+    navigate("/search/" + value);
+  };
+
+  console.log(location.pathname.includes("/profile") || location.pathname === "/")
+
   return (
-    <Row className="header-container container ">
+    <Row
+      className="header-container"
+      style={{
+        position:
+          (location.pathname.includes("/profile") || location.pathname === "/")
+            ? "fixed"
+            : "unset",
+      }}
+    >
       <Col className="logo-container" span={4}>
-        <img alt="logo" src={logo}  onClick={() => {navigate('/')}} />
+        <img
+          alt="logo"
+          src={logo}
+          onClick={() => {
+            navigate("/");
+          }}
+        />
       </Col>
       <Col className="center-vertically" span={16}>
-        <Input.Search className="search-bar" />
+        <Input.Search
+          className="search-bar"
+          placeholder="Search..."
+          onSearch={search}
+        />
       </Col>
       <Col className="center-vertically" span={4}>
         <div className="metamask-container">
@@ -77,7 +108,7 @@ const Header = () => {
                 <ShoppingCartOutlined />
               </Col>
               <Col className="center-vertically icon-header" span={12}>
-                <Dropdown overlay={menu} placement={'bottomRight'}>
+                <Dropdown overlay={menu} placement={"bottomRight"}>
                   <UserOutlined />
                 </Dropdown>
               </Col>

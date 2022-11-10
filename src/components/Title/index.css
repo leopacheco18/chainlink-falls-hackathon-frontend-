@@ -1,8 +1,9 @@
 .title-name{
     margin : 20px 0px;
-    font-size : 18px;
+    font-size : 2rem;
     font-weight : 500;
     border-bottom : 3px solid #2BC6C8;
+    width: fit-content;
 }
 
 .name{

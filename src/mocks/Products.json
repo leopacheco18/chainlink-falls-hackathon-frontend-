@@ -3,47 +3,35 @@
         "id": "1234",
         "name": "Computadora LENOVO i5, intel. iRISx 2022",
         "price": "550,99",
-        "owner": "0x00",
+        "owner": "0xfC945393a863b041F61a41C089339bDE119c7767",
         "image": "https://d500.epimg.net/cincodias/imagenes/2022/02/21/gadgets/1645453218_839118_1645453324_noticia_normal.jpg",
-        "flag": ""
+        "flag": "EC",
+        "category": "Technology"
     },
     {
         "id": "8442",
         "name": "Computadora LENOVO i5, intel. iRISx 2022",
         "price": "550,99",
-        "owner": "0x00",
+        "owner": "0xfC945393a863b041F61a41C089339bDE119c7767",
         "image": "https://d500.epimg.net/cincodias/imagenes/2022/02/21/gadgets/1645453218_839118_1645453324_noticia_normal.jpg",
-        "flag": ""
+        "flag": "VE",
+        "category": "Beauty"
     },
     {
         "id": "9384",
         "name": "Computadora LENOVO i5, intel. iRISx 2022",
         "price": "550,99",
-        "owner": "0x00",
+        "owner": "0xfC945393a863b041F61a41C089339bDE119c7767",
         "image": "https://d500.epimg.net/cincodias/imagenes/2022/02/21/gadgets/1645453218_839118_1645453324_noticia_normal.jpg",
-        "flag": ""
+        "flag": "US",
+        "category": "Toys"
     },    {
         "id": "2737",
         "name": "Computadora LENOVO i5, intel. iRISx 2022",
         "price": "550,99",
-        "owner": "0x00",
+        "owner": "0xfC945393a863b041F61a41C089339bDE119c7767",
         "image": "https://d500.epimg.net/cincodias/imagenes/2022/02/21/gadgets/1645453218_839118_1645453324_noticia_normal.jpg",
-        "flag": ""
-    },
-    {
-        "id": "4534",
-        "name": "Computadora LENOVO i5, intel. iRISx 2022",
-        "price": "550,99",
-        "owner": "0x00",
-        "image": "https://d500.epimg.net/cincodias/imagenes/2022/02/21/gadgets/1645453218_839118_1645453324_noticia_normal.jpg",
-        "flag": ""
-    },
-    {
-        "id": "8896",
-        "name": "Computadora LENOVO i5, intel. iRISx 2022",
-        "price": "550,99",
-        "owner": "0x00",
-        "image": "https://d500.epimg.net/cincodias/imagenes/2022/02/21/gadgets/1645453218_839118_1645453324_noticia_normal.jpg",
-        "flag": ""
+        "flag": "CL",
+        "category": "NFT"
     }
 ]

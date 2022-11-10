@@ -1,7 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap');
 .container{
   padding: 0 10vw;
 }
 
 body{
   overflow-x: hidden;
+  font-family: 'Jura', sans-serif !important;
+
 }
+
+.d-flex{
+  display: flex;
+} 
+
+.vertically-center{
+  align-items: center;
+}
+
+
+.center-vertically{
+  height: 100%;
+  margin: auto;
+}
+
+
+.border-bottom-green{
+
+  border-bottom : 3px solid #2BC6C8;
+}
+
+.w-100{
+  width: 100%;
+}
+

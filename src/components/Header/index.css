@@ -1,21 +1,16 @@
 
 .header-container{
-    padding: 15px 10vw;
+    padding: 1rem 10vw;
     box-shadow: 0px 0px 7.5px rgba(0, 0, 0, 0.25);
     border-radius: 0 0 40px 40px;
-    position: fixed;
     width: 100%;
     background-color: white;
+    z-index: 1;
   }
   
   .logo-container > img{
     height: 70px;
     cursor: pointer;
-  }
-  
-  .center-vertically{
-    height: 100%;
-    margin: auto;
   }
   
   .search-bar .ant-input{
@@ -41,6 +36,8 @@
     box-shadow: 0px 0px 5px #2BC6C8;
     cursor: pointer;
     transition: all 0.5s ease-in-out;
+    font-size: 1rem;
+    font-weight: 600;
   }
   
   .metamask-button:hover{ 
@@ -63,6 +60,7 @@
 
   .custom-menu-header{
     padding: 0 !important;
+    box-shadow: 0px 0px 5px #2bc6c8;
   }
 
   .custom-menu-header .ant-dropdown-menu-item{
@@ -71,8 +69,11 @@
     border-bottom: 1px solid rgba(0,0,0,0.1) !important;
     padding: 10px 12px !important;
     font-size: 1rem;
+    font-family: 'Jura', sans-serif;
+    font-weight: 500;
   }
 
   .custom-menu-header .ant-dropdown-menu-item-icon{
     font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.6);
   }

@@ -1,41 +1,31 @@
-import { useEffect } from "react";
-
-import { connect } from "react-redux";
-
-import { receiveProductsRequest } from "./store/product/actions";
 
 import Home from "./pages/home/Home";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Chat from "./pages/chat/Chat";
+import Footer from "./components/Footer";
+import Profile from "./pages/profile/Profile";
+import Search from "./pages/search/Search";
 
-const App = ({ products, receiveProducts }) => {
-  useEffect(() => {
-    receiveProducts();
-  }, []);
+const App = () => {
 
   return (
     <div className="app">
       <Router>
             <Header />
-        <div className="container">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/chat" element={<Chat />} />
+            <Route path="/profile/:address" element={<Profile />} />
+            <Route path="/search/:search" element={<Search />} />
           </Routes>
-        </div>
+        
+        <Footer />
       </Router>
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({
-  products: state.product,
-});
 
-const mapDispatchToProps = (dispatch) => ({
-  receiveProducts: () => dispatch(receiveProductsRequest()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

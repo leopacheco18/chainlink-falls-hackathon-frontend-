@@ -1,47 +1,29 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import { Col, Row } from 'antd';
 
-import { connect } from "react-redux";
-
-import { receiveProductsRequest } from "../../store/product/actions";
 
 import Product from "../Product";
 
-import Title from "../Title";
+const Products = ({ products }) => {
 
-const Products = ({ product, receiveProducts }) => {
 
-    const { products, loading, error } = product
-
-    const renderedProducts = Object.values(products).map(product => {
+    const renderedProducts = Object.values(products).map((product, key) => {
         return (
-            <Col className="gutter-row" span={6}>
+            <Col className="gutter-row" span={6} key={key}>
                 <Product {...product} />
             </Col>
         )
     })
 
-    useEffect(() => {
-        receiveProducts()
-    }, [receiveProducts])
-
     return (
         <div>
-            <Title name="Lastest products" />
-            <Row gutter={16} justify="space-between" >
+            <Row gutter={48} >
                 {renderedProducts}
             </Row>
         </div>
     )
 }
 
-const mapStateToProps = state => ({
-    product: state.product
-})
 
-const mapDispatchToProps = dispatch => ({
-    receiveProducts: () => dispatch(receiveProductsRequest())
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Products);
+export default Products;

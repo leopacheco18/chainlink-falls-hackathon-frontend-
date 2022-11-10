@@ -1,0 +1,14 @@
+.header-profile > p {
+  margin-bottom: 0;
+  font-size: 1.25rem;
+  color: #2BC6C8;
+  font-weight: 500;
+}
+.header-profile > img {
+    height: 40px;
+  }
+  
+
+.header-profile-container{
+    margin-top: 2.5rem;
+}

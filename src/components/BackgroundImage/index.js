@@ -1,8 +1,8 @@
 import React from 'react'
 import './index.css'
-const BackgroundImage = () => {
+const BackgroundImage = ({height}) => {
   return (
-    <div className='background-image'>
+    <div className='background-image' style={{height}}>
     </div>
   )
 }

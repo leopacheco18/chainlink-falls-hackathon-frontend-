@@ -1,17 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import './index.css'
 
-const Title = ({ name }) => {
-
-    const [pixels, setPixels] = useState(0)
-
-    useEffect(() => {
-        setPixels((name.length * 10) + 15)
-    }, [name])
+const Title = ({ name , width, fontSize}) => {
 
     return (
-        <div className="title-name" style={{ width: pixels }}>
+        <div className="title-name" style={{width, fontSize}}>
             <span className="name">
                 {name}
             </span>
