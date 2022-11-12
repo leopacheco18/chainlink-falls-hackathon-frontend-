@@ -14,7 +14,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const location = useLocation();
-  console.log(location);
   const connectWithMetamask = useMetamask();
   const address = useAddress();
   const navigate = useNavigate();
@@ -72,7 +71,6 @@ const Header = () => {
     navigate("/search/" + value);
   };
 
-  console.log(location.pathname.includes("/profile") || location.pathname === "/")
 
   return (
     <Row
@@ -83,6 +81,7 @@ const Header = () => {
             ? "fixed"
             : "unset",
       }}
+      id='header'
     >
       <Col className="logo-container" span={4}>
         <img

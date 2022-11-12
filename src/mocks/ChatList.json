@@ -1,0 +1,48 @@
+[
+    {
+        "image" : "https://d500.epimg.net/cincodias/imagenes/2022/02/21/gadgets/1645453218_839118_1645453324_noticia_normal.jpg",
+        "name": "Computadora LENOVO i5, intel. iRISx 2022",
+        "owner": "0xfC945393a863b041F61a41C089339bDE119c7767",
+        "lastMsg": "Hola, quisiera saber detalles sobre la laptop que esta vendiendo.",
+        "status": true,
+        "id_chat": 1
+    },
+    {
+        "image" : "https://d500.epimg.net/cincodias/imagenes/2022/02/21/gadgets/1645453218_839118_1645453324_noticia_normal.jpg",
+        "name": "Computadora LENOVO i5, intel. iRISx 2022",
+        "owner": "0xfC945393a863b041F61a41C089339bDE119c7767",
+        "lastMsg": "Hola, quisiera saber detalles sobre la laptop que esta vendiendo.",
+        "status": true,
+        "id_chat": 2
+    },{
+        "image" : "https://d500.epimg.net/cincodias/imagenes/2022/02/21/gadgets/1645453218_839118_1645453324_noticia_normal.jpg",
+        "name": "Computadora LENOVO i5, intel. iRISx 2022",
+        "owner": "0xfC945393a863b041F61a41C089339bDE119c7767",
+        "lastMsg": "Hola, quisiera saber detalles sobre la laptop que esta vendiendo.",
+        "status": false,
+        "id_chat": 3
+    },
+    {
+        "image" : "https://d500.epimg.net/cincodias/imagenes/2022/02/21/gadgets/1645453218_839118_1645453324_noticia_normal.jpg",
+        "name": "Computadora LENOVO i5, intel. iRISx 2022",
+        "owner": "0xfC945393a863b041F61a41C089339bDE119c7767",
+        "lastMsg": "Hola, quisiera saber detalles sobre la laptop que esta vendiendo.",
+        "status": true,
+        "id_chat": 4
+    },
+    {
+        "image" : "https://d500.epimg.net/cincodias/imagenes/2022/02/21/gadgets/1645453218_839118_1645453324_noticia_normal.jpg",
+        "name": "Computadora LENOVO i5, intel. iRISx 2022",
+        "owner": "0xfC945393a863b041F61a41C089339bDE119c7767",
+        "lastMsg": "Hola, quisiera saber detalles sobre la laptop que esta vendiendo.",
+        "status": true,
+        "id_chat": 5
+    },{
+        "image" : "https://d500.epimg.net/cincodias/imagenes/2022/02/21/gadgets/1645453218_839118_1645453324_noticia_normal.jpg",
+        "name": "Computadora LENOVO i5, intel. iRISx 2022",
+        "owner": "0xfC945393a863b041F61a41C089339bDE119c7767",
+        "lastMsg": "Hola, quisiera saber detalles sobre la laptop que esta vendiendo.",
+        "status": false,
+        "id_chat": 6
+    }
+]
