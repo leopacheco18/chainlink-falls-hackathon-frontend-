@@ -7,6 +7,7 @@ import Chat from "./pages/chat/Chat";
 import Footer from "./components/Footer";
 import Profile from "./pages/profile/Profile";
 import Search from "./pages/search/Search";
+import Product from "./pages/product/Product";
 
 const App = () => {
 
@@ -19,6 +20,7 @@ const App = () => {
             <Route path="/chat" element={<Chat />} />
             <Route path="/profile/:address" element={<Profile />} />
             <Route path="/search/:search" element={<Search />} />
+            <Route path="/product/:productId" element={<Product />} />
           </Routes>
         
         <Footer />

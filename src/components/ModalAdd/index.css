@@ -1,0 +1,14 @@
+.modal-create{
+    width: 75vw !important;
+}
+
+.modal-create-btns{
+    display: flex;
+    gap: 15px;
+    justify-content: end;
+    margin-top: 1rem;
+}
+
+.container-steps{
+    margin-top: 1rem;
+}

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useAddress, useDisconnect, useMetamask } from "@thirdweb-dev/react";
 import { Col, Dropdown, Input, Menu, Row } from "antd";
 import logo from "../../assets/image/logo.png";
@@ -11,12 +11,14 @@ import {
   PlusCircleFilled,
 } from "@ant-design/icons";
 import { useLocation, useNavigate } from "react-router-dom";
+import ModalAdd from "../ModalAdd";
 
 const Header = () => {
   const location = useLocation();
   const connectWithMetamask = useMetamask();
   const address = useAddress();
   const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false)
   useEffect(() => {
     console.log(address);
   }, [address]);
@@ -55,6 +57,9 @@ const Header = () => {
         },
         {
           key: "3",
+          onClick: () => {
+            setShowModal(true)
+          },
           label: "Add a product",
           icon: <PlusCircleFilled />,
         },
@@ -83,6 +88,7 @@ const Header = () => {
       }}
       id='header'
     >
+      <ModalAdd showModal={showModal} setShowModal={setShowModal} />
       <Col className="logo-container" span={4}>
         <img
           alt="logo"

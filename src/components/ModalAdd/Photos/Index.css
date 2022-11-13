@@ -1,0 +1,8 @@
+.ant-upload.ant-upload-select-picture-card, .ant-upload-list-picture-card-container{
+    width: 200px;
+    height: 200px;
+}
+
+.ant-upload-list-picture-card .ant-upload-list-item-info::before{
+    left: 0;
+}

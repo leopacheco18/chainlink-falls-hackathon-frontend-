@@ -1,0 +1,48 @@
+.header-profile > p {
+    margin-bottom: 0;
+    font-size: 1.25rem;
+    color: #2BC6C8;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .header-profile > img,   .product-info-price > img {
+      height: 30px;
+    }
+    
+  .product-info-title{
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  .product-info-price{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    gap: 10px;
+  }
+  .product-info-price > p {
+    margin-bottom: 0;
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  .product-info-description { 
+    font-size: 1.15rem;
+    font-weight: 400;
+    text-align: justify;
+  }
+
+  .product-info-btn-chat{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    height: fit-content;
+    border: none;
+    box-shadow: 0 0 5px #2bc6c8;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .product-info-btn-chat:hover{
+    background-color: #2BC6C8;
+    color: white;
+  }

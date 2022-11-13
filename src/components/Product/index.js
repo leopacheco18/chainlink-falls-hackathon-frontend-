@@ -6,6 +6,7 @@ import Flag from 'react-world-flags'
 import { GiLipstick, GiSkirt, GiUnderwearShorts } from "react-icons/gi";
 import { AiFillAppstore, AiFillPicture } from "react-icons/ai";
 import { MdOutlineToys, MdPets, MdPhoneIphone } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const { Meta } = Card;
 const CATEGORIES = [
@@ -25,8 +26,11 @@ const Product = ({
     image,
     owner,
     flag,
-    category
+    category,
+    id
 }) => {
+
+    const navigate = useNavigate();
 
     const shortAddress = (address) => {
           return (
@@ -40,6 +44,7 @@ const Product = ({
         <Card
             hoverable
             style={{ width: '100%', position: 'relative' }}
+            onClick={() => navigate(`/product/${id}` )}
             cover={<img alt="product"   src={image} />}
         >
             <h3 className="product-name">

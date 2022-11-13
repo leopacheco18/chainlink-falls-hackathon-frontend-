@@ -43,3 +43,34 @@ body{
   width: 100%;
 }
 
+
+.btn-with-icon {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: fit-content !important;
+  border: none !important;
+  box-shadow: 0 0 5px #2bc6c8 !important;
+  transition: all 0.5s ease-in-out !important;
+}
+
+.btn-with-icon:hover {
+  background-color: #2bc6c8 !important;
+  color: white !important;
+}
+
+.btn-with-icon-default {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: fit-content !important;
+  border: none !important;
+  box-shadow: 0 0 5px rgba(0,0,0, 0.3) !important;
+  transition: all 0.5s ease-in-out !important;
+}
+
+.text-center{
+  text-align: center;
+}
