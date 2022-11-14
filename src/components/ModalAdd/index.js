@@ -1,6 +1,6 @@
-import { useAddress } from "@thirdweb-dev/react";
+import { useAddress} from "@thirdweb-dev/react";
 import { Button, Col, message, Modal, Row, Steps } from "antd";
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import "./index.css";
 import {
   RightOutlined,
@@ -12,6 +12,8 @@ import Photos from "./Photos/Index";
 import CarouselProduct from "../CarouselProduct";
 import ProductInfo from "../ProductInfo";
 import axios from "axios";
+import { ethers} from 'ethers';
+import AbiOpenMarket from '../../mocks/AbiOpenMarket.json'
 
 const productEmpty = {
   name: null,
@@ -116,8 +118,27 @@ const ModalAdd = ({ setShowModal, showModal }) => {
       },
       data: JSON.stringify(productFinal),
     });
+    const provider = new ethers.providers.Web3Provider(
+      window.ethereum
+    );
 
-    console.log(res.data.IpfsHash);
+    const signer = provider.getSigner();
+
+    const contract = new ethers.Contract(
+      process.env.REACT_APP_CONTRACT_ADDRESS,
+      AbiOpenMarket,
+      signer
+    );
+
+    await contract.addItem(
+      res.data.IpfsHash,
+      ethers.utils.parseUnits(productFinal.price.toString()),
+      productFinal.name,
+      process.env.REACT_APP_IPFS_GATEWAY + productFinal.image,
+      productFinal.category,
+      productFinal.flag
+    );
+
   };
 
   const prev = () => {

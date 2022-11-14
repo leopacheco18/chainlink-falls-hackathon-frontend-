@@ -3,24 +3,24 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import CarouselProduct from "../../components/CarouselProduct";
 import ProductInfo from "../../components/ProductInfo";
-import products from "../../mocks/Products.json";
 import "./Product.css";
 import { RiArrowGoBackFill } from "react-icons/ri";
+import useGetMetadata from "../../hooks/useGetMetadata";
 const Product = () => {
   const { productId } = useParams();
   const navigate = useNavigate();
   const [productSelected, setProductSelected] = useState();
   const [images, setImages] = useState([]);
+  const { getMetadata } = useGetMetadata();
   useEffect(() => {
     searchProduct();
   }, []);
 
-  const searchProduct = () => {
-    const product = products.find((item) => item.id === productId);
-    if (!product) {
-      navigate("/");
+  const searchProduct = async () => {
+    const product = await getMetadata(productId);
+    if(!product){
+      navigate('/')
     }
-    setProductSelected(product);
 
     const images = [product.image];
     for (let i = 0; i < 4; i++) {
@@ -29,6 +29,7 @@ const Product = () => {
       }
     }
     setImages(images);
+    setProductSelected(product)
   };
 
   const redirect = () => {

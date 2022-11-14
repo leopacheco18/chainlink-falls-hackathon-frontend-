@@ -27,7 +27,7 @@ const Product = ({
     owner,
     flag,
     category,
-    id
+    tokenId
 }) => {
 
     const navigate = useNavigate();
@@ -44,7 +44,7 @@ const Product = ({
         <Card
             hoverable
             style={{ width: '100%', position: 'relative' }}
-            onClick={() => navigate(`/product/${id}` )}
+            onClick={() => navigate(`/product/${tokenId}` )}
             cover={<img alt="product"   src={image} />}
         >
             <h3 className="product-name">

@@ -1,11 +1,9 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
 import logoMini from '../../assets/image/logo-mini.png'
 import Title from '../Title';
 import './index.css'
 
-const HeaderProfile = () => {
-    const { address } = useParams();
+const HeaderProfile = ({address}) => {
 
     const shortAddress = () => {
         if (address) {

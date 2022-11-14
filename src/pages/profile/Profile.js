@@ -1,9 +1,10 @@
 import { Col, Input, Row, Select } from "antd";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import BackgroundImage from "../../components/BackgroundImage";
 import HeaderProfile from "../../components/HeaderProfile";
 import Products from "../../components/Products";
-import productList from "../../mocks/Products.json"
+import useHttp from "../../hooks/useHttp";
 import "./Profile.css";
 
 const options = [
@@ -18,20 +19,32 @@ const options = [
   {
     value: "price",
     label: "Price",
-  },
-  {
-    value: "category",
-    label: "Category",
-  },
+  }
 ];
 const Profile = () => {
+
+
+  const [productList, setProductList] = useState([])
+  const {loading, request } = useHttp();
+
+  const { address } = useParams();
+  useEffect(() => {
+    getProductsByAddress();
+  }, [])
+
+  const getProductsByAddress = async () => {
+
+    const data = await request({endpoint: `profile/${address}`});
+    setProductList(data)
+  }
+
   const handleChange = (e) => {
     console.log(e);
   };
   return (
     <div className="container">
       <BackgroundImage height={"35vh"} />
-      <HeaderProfile />
+      <HeaderProfile  address={address} />
       <Row gutter={24}>
         <Col span={24} md={18}>
           <Input.Search placeholder="Search..." />

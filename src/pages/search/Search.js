@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./Search.css";
-import productList from "../../mocks/Products.json";
 import { Col, Drawer, Input, Row, Select } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
 import Products from "../../components/Products";
 import Title from "../../components/Title";
 import countryList from "../../mocks/Countries.json";
+import useHttp from "../../hooks/useHttp";
 const options = [
   {
     value: "name",
@@ -34,11 +34,22 @@ const CATEGORIES = [
 ];
 const Search = () => {
   const [open, setOpen] = useState(false);
+
+  const [productList, setProductList] = useState([])
+  const {loading, request } = useHttp();
   const { search } = useParams();
   const onClose = () => {
     setOpen(false);
   };
   const handleChange = (value) => {};
+  useEffect(() => {
+    searchProduct();
+  }, [search]);
+
+  const searchProduct = async () => {
+    const data = await request({endpoint: `search/${search}`});
+    setProductList(data)
+  };
   return (
     <div className="container">
       <Drawer

@@ -13,10 +13,9 @@ const CarouselProduct = ({ images }) => {
         <Carousel afterChange={onChange}>
           {images.map((item, key) => (
               <div key={key} className="product-image-carousel-container">
-                <div style={{backgroundImage: `url(${item})`}} className="product-image-carousel"></div>
+                <div style={{backgroundImage: `url(${process.env.REACT_APP_IPFS_GATEWAY + item})`}} className="product-image-carousel"></div>
               </div>
           ))}
-
         </Carousel>
       </div>
     );
