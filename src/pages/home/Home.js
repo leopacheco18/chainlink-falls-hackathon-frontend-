@@ -21,6 +21,7 @@ const Home = () => {
 
     const getLastestProducts = async () => {
         const data = await request({endpoint: "get-lastest-products"});
+        
         setProductList(data)
     }
 

@@ -77,6 +77,7 @@ const ModalAdd = ({ setShowModal, showModal }) => {
           images.push(productAux[`image${i}`]);
         }
       }
+      console.log(images)
       setImages(images);
       productAux.owner = address;
       setProduct(productAux);
@@ -167,7 +168,7 @@ const ModalAdd = ({ setShowModal, showModal }) => {
         {current === 2 && (
           <Row gutter={64}>
             <Col span={24} md={12}>
-              <CarouselProduct images={images} />
+              <CarouselProduct images={images}  base64={true}  />
             </Col>
             <Col span={24} md={12}>
               <ProductInfo {...product} hideButton={true} />

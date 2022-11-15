@@ -50,7 +50,7 @@ const Product = () => {
           <CarouselProduct images={images} />
         </Col>
         <Col span={24} md={12}>
-          <ProductInfo {...productSelected} />
+          <ProductInfo {...productSelected} tokenId={productId} />
         </Col>
       </Row>
     </div>

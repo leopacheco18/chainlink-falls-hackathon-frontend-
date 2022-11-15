@@ -4,7 +4,7 @@ import ChatContent from '../../components/ChatContent';
 import Chatlist from '../../components/Chatlist';
 import './Chat.css'
 
-const Chat = () => {
+const Chat = ({socket}) => {
   const [height , setHeight] = useState(0);
   const [chatSelected, setChatSelected] = useState()
 
@@ -12,6 +12,10 @@ const Chat = () => {
     setHeight(document.getElementById('header').offsetHeight)
   }, [])
 
+
+  const sendMessage = (msg) => {
+
+  }
 
   return (
     <Row style={{height: `calc(100vh - ${height}px)`}}>

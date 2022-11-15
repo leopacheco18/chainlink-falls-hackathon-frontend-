@@ -6,9 +6,13 @@ import Title from '../Title'
 import { Button } from 'antd'
 import {IoMdChatboxes} from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
+import useHttp from '../../hooks/useHttp'
+import { useAddress } from '@thirdweb-dev/react'
 
-const ProductInfo = ({name, owner, price, description, hideButton}) => {
+const ProductInfo = ({name, owner, price, description, hideButton, tokenId}) => {
     const navigate = useNavigate();
+    const address = useAddress();
+    const { loading, request } = useHttp();
     const shortAddress = () => {
         if (owner) {
           return (
@@ -20,6 +24,10 @@ const ProductInfo = ({name, owner, price, description, hideButton}) => {
           return "";
         }
       };
+
+  const createChat = async () => {
+    const res = await request({type: "post", endpoint: "create-chat", data: { owner, buyer: address, tokenId }})
+  }
   return (
     <div>
         <h2 className='product-info-title'>{name}</h2>
@@ -34,8 +42,8 @@ const ProductInfo = ({name, owner, price, description, hideButton}) => {
         </div>
         <Title  name={'Description'} fontSize={'1.25rem'} />
         <p className='product-info-description'>{description}</p>
-        {!hideButton && 
-        <Button block size='large' className='product-info-btn-chat' > <IoMdChatboxes /> Chat </Button>}
+        {!hideButton && address && 
+        <Button block size='large' className='product-info-btn-chat' onClick={createChat}> <IoMdChatboxes /> Chat </Button>}
     </div>
   )
 }
