@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { useAddress, useDisconnect, useMetamask } from "@thirdweb-dev/react";
 import { Col, Dropdown, Input, Menu, Row } from "antd";
 import logo from "../../assets/image/logo.png";
@@ -19,9 +19,6 @@ const Header = () => {
   const address = useAddress();
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false)
-  useEffect(() => {
-    console.log(address);
-  }, [address]);
 
   const shortAddress = () => {
     if (address) {

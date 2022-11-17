@@ -74,7 +74,6 @@ const App = () => {
 
   const closeSocket = () => {
     if(socket){
-      alert('close')
       socket.close();
       setSocket()
     }

@@ -20,7 +20,6 @@ const Transactions = () => {
     const getTransactions = async () => {
         const data = await request({endpoint : `get-transactions/${address}`});
         setTransactionList(data)
-        console.log(data)
     }
     
   return (
