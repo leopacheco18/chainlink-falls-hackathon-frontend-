@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# Chainlink-falls-hackathon-frontend
+Frontend in React for OpenMarket Project on Chainlink Hackathon.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+OpenMarket is a marketplace where you can create chat to ask private questions before you want to buy a product. Also as a seller you can make sure that the buyer have the number.
 
-## Available Scripts
+With Chainlink datafeeds the price of the product could be in Matic or USD. Also, in order to make the most secure way to sell products, we create a random number with VRF and it is given to the buyer after deposit the money. And the seller needs this number to witdraw the money and transfer the nft.
 
-In the project directory, you can run:
 
-### `npm start`
+## Live Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[Live Demo Hosted in Fleek](https://open-market-chainlink-falls-hackathon.on.fleek.co/#/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Important Link
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[SmartContracts Repo](https://github.com/leopacheco18/chainlink-falls-hackathon-smart-contract)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[NodeJs Backend Repo](https://github.com/leopacheco18/chainlink-falls-hackathon-backend)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[Events Repo](https://github.com/leopacheco18/chainlink-falls-hackathon-events)
 
-### `npm run eject`
+## Requirements
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* NodeJs >= 16.17.0
+* ChainID -> Mumbai
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Note: You can add mumbai network [here](https://chainlist.org/).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## How to run
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Clone the repository.
 
-## Learn More
+`git clone https://github.com/leopacheco18/chainlink-falls-hackathon-frontend-`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Enter to the folder.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`cd chainlink-falls-hackathon-frontend-`
 
-### Code Splitting
+3. Install node modules.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+`npm install`
 
-### Analyzing the Bundle Size
+4. Create .env from example
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+`cp .env.example .env`
 
-### Making a Progressive Web App
+5. Init the project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+`npm start`
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+You are all set.
 
-### Deployment
+## Showcase
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. HomePage
 
-### `npm run build` fails to minify
+![1](https://user-images.githubusercontent.com/47113025/202577582-f76cf306-d428-4c97-a620-494f0997b04c.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+2. Options after connect wallet
+
+![2](https://user-images.githubusercontent.com/47113025/202577851-4b4587e3-8459-4180-93fe-0d0de5ead65d.png)
+
+
+3. Profile
+
+![3](https://user-images.githubusercontent.com/47113025/202577963-62529e4f-2656-420b-a39d-babc3075d6a6.png)
+
+
+4. Chats
+
+![4](https://user-images.githubusercontent.com/47113025/202578181-70046059-d17f-4ca5-a29a-acf9acb6018a.png)
+
+
+5. Create Product
+
+  Add info
+![5](https://user-images.githubusercontent.com/47113025/202579010-4e80ee97-c52b-46e0-a87d-034407dc6b23.png)
+
+  Add Images
+![6](https://user-images.githubusercontent.com/47113025/202579001-0312f518-f7b4-4e7e-8e53-b6d0b6a44a0b.png)
+
+  Preview
+![7](https://user-images.githubusercontent.com/47113025/202579006-50127e4e-5a56-4c81-a1c0-c2de179192fa.png)
+
+
+6. View transactions
+
+![8](https://user-images.githubusercontent.com/47113025/202579238-82587a91-35ca-49ae-8380-f0bdefdccfb5.png)
+
+
+7. Product Detail
+
+![9](https://user-images.githubusercontent.com/47113025/202580637-dd76b437-1d6e-4af8-94b2-a9c606992e15.png)
+
+
+8. Product detail as an owner
+
+![10](https://user-images.githubusercontent.com/47113025/202580715-d7f1dc3e-a154-48e4-b73e-ca6e1efcbb12.png)
