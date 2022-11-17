@@ -41,6 +41,16 @@ const TransactionContent = ({
     );
 
     try {
+      const res = await contract.randomByRequestId(requestId);
+      const random = ethers.BigNumber.from(res).toString();
+      if(random === '0'){
+        setLoading(false)
+        notification.info({
+          message: "There's not random number yet",
+          description: "Please wait a few minutes."
+        })
+        return
+      }
       await contract.deposit(requestId, _id, {
         value: ethers.utils.parseEther(''+product.priceMatic),
       });
