@@ -7,13 +7,8 @@
     position: relative;
 }
 
-.close-chat{
-    right: 20px;
-    font-size: 22px;
-    width: 40px;
-}
 .generate-random-number-chat{
-    right: 70px;
+    right: 20px;
     font-size: 18px;
     font-weight: 600;
     padding: 0 10px;

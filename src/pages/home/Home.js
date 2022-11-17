@@ -3,6 +3,7 @@ import AboutUs from "../../components/AboutUs";
 import BackgroundImage from "../../components/BackgroundImage";
 
 import Categories from "../../components/Categories";
+import Loading from "../../components/Loading";
 
 import Products from "../../components/Products";
 import Title from "../../components/Title";
@@ -27,6 +28,7 @@ const Home = () => {
 
     return (
         <div className="home container">
+            {loading && <Loading />}
 
             <BackgroundImage />
 

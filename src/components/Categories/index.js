@@ -40,7 +40,7 @@ const Categories = () => {
 
     const renderedCategories = Object.values(CATEGORIES).map((category,key) => {
         return (
-            <Col className="gutter-row" span={6} key={key}>
+            <Col className="gutter-row" span={24} md={12} lg={6} key={key}>
                 <Category {...category} />
             </Col>
         )
@@ -51,7 +51,7 @@ const Categories = () => {
 
             <Title name="Categories" />
 
-            <Row gutter={48}>
+            <Row gutter={[48, 24]}>
                 {renderedCategories}
             </Row>
         </div>

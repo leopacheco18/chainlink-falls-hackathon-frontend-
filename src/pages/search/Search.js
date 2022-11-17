@@ -7,18 +7,23 @@ import Products from "../../components/Products";
 import Title from "../../components/Title";
 import countryList from "../../mocks/Countries.json";
 import useHttp from "../../hooks/useHttp";
+import Loading from "../../components/Loading";
 const options = [
   {
-    value: "name",
-    label: "Name",
+    value: "nameAsc",
+    label: "Name (A-Z)",
   },
   {
-    value: "date",
-    label: "Date",
+    value: "nameDesc",
+    label: "Name (Z-A)",
   },
   {
-    value: "price",
-    label: "Price",
+    value: "priceAsc",
+    label: "Price (0-10)",
+  },
+  {
+    value: "priceDesc",
+    label: "Price (10-0)",
   },
 ];
 
@@ -35,23 +40,92 @@ const CATEGORIES = [
 const Search = () => {
   const [open, setOpen] = useState(false);
 
-  const [productList, setProductList] = useState([])
-  const {loading, request } = useHttp();
+  const [filters, setFilters] = useState({
+    country: null,
+    category: [],
+    priceMin: null,
+    priceMax: null,
+  });
+  const [productList, setProductList] = useState([]);
+  const [productShow, setProductShow] = useState([]);
+  const { loading, request } = useHttp();
   const { search } = useParams();
   const onClose = () => {
     setOpen(false);
   };
-  const handleChange = (value) => {};
+  const handleChange = (value) => {
+    let arrAux = [...productShow];
+    switch (value) {
+      case "nameAsc":
+        arrAux.sort((a, b) => a.name.localeCompare(b.name));
+        break;
+      case "nameDesc":
+        arrAux.sort((a, b) => b.name.localeCompare(a.name));
+        break;
+      case "priceAsc":
+        arrAux.sort((a, b) => parseFloat(a.priceMatic) - parseFloat(b.priceMatic));
+        break;
+      case "priceDesc":
+        arrAux.sort((a, b) => parseFloat(b.priceMatic) - parseFloat(a.priceMatic));
+        break;
+    }
+    setProductShow(arrAux);
+  };
   useEffect(() => {
     searchProduct();
   }, [search]);
 
+  useEffect(() => {
+    filterArray();
+  }, [filters]);
+
+  const filterArray = () => {
+    if (productList) {
+      let arrAux = [...productList];
+      if (filters.country) {
+        arrAux = arrAux.filter((item) => item.flag === filters.country);
+      }
+      if (filters.category.length > 0) {
+        let arrAux2 = [...arrAux];
+        arrAux = [];
+        arrAux2.forEach((item) => {
+          filters.category.forEach((category) => {
+            if (category === item.category) {
+              arrAux.push(item);
+            }
+          });
+        });
+      }
+      if (filters.priceMin) {
+        arrAux = arrAux.filter(
+          (item) => parseFloat(item.priceMatic) >= filters.priceMin
+        );
+      }
+
+      if (filters.priceMax) {
+        arrAux = arrAux.filter(
+          (item) => parseFloat(item.priceMatic) <= filters.priceMax
+        );
+      }
+      setProductShow(arrAux);
+    }
+  };
+
   const searchProduct = async () => {
-    const data = await request({endpoint: `search/${search}`});
-    setProductList(data)
+    const data = await request({ endpoint: `search/${search}` });
+    setFilters({
+      country: null,
+      category: [],
+      priceMin: null,
+      priceMax: null,
+    });
+    setProductList(data);
+    setProductShow(data);
   };
   return (
     <div className="container">
+
+{loading && <Loading />}
       <Drawer
         title={null}
         placement={"left"}
@@ -65,10 +139,13 @@ const Search = () => {
           placeholder="Country..."
           className="w-100"
           options={countryList}
+          value={filters.country}
           showSearch
+          allowClear
           filterOption={(input, option) =>
             (option?.label ?? "").toLowerCase().includes(input.toLowerCase())
           }
+          onChange={(val) => setFilters({ ...filters, country: val })}
         />
         <Title name={"Filter by categories"} fontSize="1.25rem" />
         <Select
@@ -82,14 +159,29 @@ const Search = () => {
           filterOption={(input, option) =>
             (option?.label ?? "").toLowerCase().includes(input.toLowerCase())
           }
+          onChange={(val) => setFilters({ ...filters, category: val })}
         />
         <Title name={"Filter by price"} fontSize="1.25rem" />
         <Row gutter={24}>
           <Col span={24} md={12}>
-            <Input type="number" placeholder="Min..." />
+            <Input
+              type="number"
+              placeholder="Min..."
+              step={0.01}
+              onChange={(e) =>
+                setFilters({ ...filters, priceMin: e.target.value })
+              }
+            />
           </Col>
           <Col span={24} md={12}>
-            <Input type="number" placeholder="Max..." />
+            <Input
+              type="number"
+              placeholder="Max..."
+              step={0.01}
+              onChange={(e) =>
+                setFilters({ ...filters, priceMax: e.target.value })
+              }
+            />
           </Col>
         </Row>
       </Drawer>
@@ -120,7 +212,7 @@ const Search = () => {
 
       <br />
       <br />
-      <Products products={productList} />
+      <Products products={productShow} />
     </div>
   );
 };

@@ -23,7 +23,7 @@ const team = [
 
 const AboutUsCard = ({name, role, image}) => {
 
-    return <Col span={24} md={8} className='gutter-row'>
+    return <Col span={24} md={12} lg={8} className='gutter-row'>
 
         <div className='about-us-card '>
 
@@ -40,7 +40,7 @@ const AboutUs = () => {
     <div>
         <Title name={'About Us'} />
 
-        <Row gutter={150}>
+        <Row gutter={[150, 24]}>
             {team.map((item, key ) => (
                 <AboutUsCard key={key} {...item} />
             ))}

@@ -24,6 +24,12 @@
     font-weight: 500;
   }
 
+  .product-info-price > div {
+
+    color: rgba(0,0,0,0.6);
+    font-size: 1rem;
+  }
+
   .product-info-description { 
     font-size: 1.15rem;
     font-weight: 400;
@@ -31,6 +37,7 @@
   }
 
   .product-info-btn-chat{
+    white-space: break-spaces;
     display: flex;
     align-items: center;
     justify-content: center;

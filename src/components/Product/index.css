@@ -57,3 +57,27 @@
     height: 100%;
     border-radius: 50%;
 }
+.product-mini-price {
+
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    gap: 10px;
+    position: relative;
+}
+
+.product-mini-price > div {
+    color: rgba(0,0,0,0.6);
+    font-size: 1rem;
+}
+
+.product-mini-price  > img {
+
+    height: 30px;
+}
+
+.product-mini-price > p{
+
+    margin-bottom: 0;
+    font-size: 1.25rem;
+    font-weight: 500;
+}

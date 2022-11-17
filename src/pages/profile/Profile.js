@@ -3,28 +3,34 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import BackgroundImage from "../../components/BackgroundImage";
 import HeaderProfile from "../../components/HeaderProfile";
+import Loading from "../../components/Loading";
 import Products from "../../components/Products";
 import useHttp from "../../hooks/useHttp";
 import "./Profile.css";
 
 const options = [
   {
-    value: "name",
-    label: "Name",
+    value: "nameAsc",
+    label: "Name (A-Z)",
   },
   {
-    value: "date",
-    label: "Date",
+    value: "nameDesc",
+    label: "Name (Z-A)",
   },
   {
-    value: "price",
-    label: "Price",
-  }
+    value: "priceAsc",
+    label: "Price (0-10)",
+  },
+  {
+    value: "priceDesc",
+    label: "Price (10-0)",
+  },
 ];
 const Profile = () => {
 
 
   const [productList, setProductList] = useState([])
+  const [productShow, setProductShow] = useState([]);
   const {loading, request } = useHttp();
 
   const { address } = useParams();
@@ -36,18 +42,43 @@ const Profile = () => {
 
     const data = await request({endpoint: `profile/${address}`});
     setProductList(data)
+    setProductShow(data)
   }
 
-  const handleChange = (e) => {
-    console.log(e);
+  const handleChange = (value) => {
+    let arrAux = [...productShow];
+    switch (value) {
+      case "nameAsc":
+        arrAux.sort((a, b) => a.name.localeCompare(b.name));
+        break;
+      case "nameDesc":
+        arrAux.sort((a, b) => b.name.localeCompare(a.name));
+        break;
+      case "priceAsc":
+        arrAux.sort((a, b) => parseFloat(a.priceMatic) - parseFloat(b.priceMatic));
+        break;
+      case "priceDesc":
+        arrAux.sort((a, b) => parseFloat(b.priceMatic) - parseFloat(a.priceMatic));
+        break;
+    }
+    setProductShow(arrAux);
   };
+
+  const search = (value ) => {
+    let arrAux = [...productList];
+    arrAux = arrAux.filter(item => item.name.toLowerCase().includes(value.toLowerCase()));
+    setProductShow(arrAux)
+  }
+  
   return (
     <div className="container">
+
+{loading && <Loading />}
       <BackgroundImage height={"35vh"} />
       <HeaderProfile  address={address} />
-      <Row gutter={24}>
+      <Row gutter={[24,24]}>
         <Col span={24} md={18}>
-          <Input.Search placeholder="Search..." />
+          <Input.Search onSearch={search} placeholder="Search..."  />
         </Col>
         <Col span={24} md={6}>
           <Select
@@ -62,7 +93,7 @@ const Profile = () => {
       </Row>
             <br />
             <br />
-      <Products products={productList} />
+      <Products products={productShow} />
     </div>
   );
 };

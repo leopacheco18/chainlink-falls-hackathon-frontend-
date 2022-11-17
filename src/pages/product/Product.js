@@ -6,12 +6,14 @@ import ProductInfo from "../../components/ProductInfo";
 import "./Product.css";
 import { RiArrowGoBackFill } from "react-icons/ri";
 import useGetMetadata from "../../hooks/useGetMetadata";
+import Loading from "../../components/Loading";
 const Product = () => {
   const { productId } = useParams();
   const navigate = useNavigate();
   const [productSelected, setProductSelected] = useState();
   const [images, setImages] = useState([]);
-  const { getMetadata } = useGetMetadata();
+  const { getMetadata , loading} = useGetMetadata();
+
   useEffect(() => {
     searchProduct();
   }, []);
@@ -38,6 +40,8 @@ const Product = () => {
 
   return (
     <div className="container container-product">
+
+{loading && <Loading />}
       <Row gutter={64}>
         <Col span={24}>
           <Button className="btn-with-icon" onClick={redirect}>
@@ -46,10 +50,10 @@ const Product = () => {
           </Button>
           <br />
         </Col>
-        <Col span={24} md={12}>
+        <Col span={24} lg={12}>
           <CarouselProduct images={images} />
         </Col>
-        <Col span={24} md={12}>
+        <Col span={24} lg={12}>
           <ProductInfo {...productSelected} tokenId={productId} />
         </Col>
       </Row>

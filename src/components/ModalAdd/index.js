@@ -1,6 +1,6 @@
-import { useAddress} from "@thirdweb-dev/react";
-import { Button, Col, message, Modal, Row, Steps } from "antd";
-import React, {  useState } from "react";
+import { useAddress } from "@thirdweb-dev/react";
+import { Button, Col, message, Modal, notification, Row, Steps } from "antd";
+import React, { useState } from "react";
 import "./index.css";
 import {
   RightOutlined,
@@ -12,8 +12,9 @@ import Photos from "./Photos/Index";
 import CarouselProduct from "../CarouselProduct";
 import ProductInfo from "../ProductInfo";
 import axios from "axios";
-import { ethers} from 'ethers';
-import AbiOpenMarket from '../../mocks/AbiOpenMarket.json'
+import { ethers } from "ethers";
+import AbiOpenMarket from "../../mocks/AbiOpenMarket.json";
+import Loading from "../Loading";
 
 const productEmpty = {
   name: null,
@@ -38,6 +39,7 @@ const ModalAdd = ({ setShowModal, showModal }) => {
 
   const [fileList, setFileList] = useState([]);
   const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const closeModal = () => {
     setShowModal(false);
@@ -45,7 +47,7 @@ const ModalAdd = ({ setShowModal, showModal }) => {
     setProduct(productEmpty);
   };
 
-  const next = () => {
+  const next = async () => {
     if (current === 0) {
       if (
         !product.name ||
@@ -64,6 +66,7 @@ const ModalAdd = ({ setShowModal, showModal }) => {
         message.error("You need at least 1 image");
         return;
       }
+      setLoading(true);
       let productAux = { ...product };
       productAux.image = fileList[0].preview;
       for (let i = 0; i < 4; i++) {
@@ -77,16 +80,42 @@ const ModalAdd = ({ setShowModal, showModal }) => {
           images.push(productAux[`image${i}`]);
         }
       }
-      console.log(images)
+
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+      const signer = provider.getSigner();
+
+      const contract = new ethers.Contract(
+        process.env.REACT_APP_CONTRACT_ADDRESS,
+        AbiOpenMarket,
+        signer
+      );
+
+      let maticPrice = await contract.callStatic.getMaticPrice();
+      maticPrice = ethers.utils.formatUnits(maticPrice, 8);
+
+      if (productAux.currency === "MATIC") {
+        productAux.priceMatic = productAux.price;
+        productAux.priceUSD =
+          parseFloat(productAux.price) * parseFloat(maticPrice);
+      } else {
+        productAux.priceUSD = productAux.price;
+        productAux.priceMatic =
+          parseFloat(productAux.price) * parseFloat(maticPrice);
+      }
+
       setImages(images);
       productAux.owner = address;
+      productAux.status = true;
       setProduct(productAux);
+      setLoading(false);
     }
     setCurrent(current + 1);
   };
 
   const saveProduct = async () => {
     const arrImages = [];
+    setLoading(true);
     for (let i = 0; i < fileList.length; i++) {
       let formData = new FormData();
       formData.append("file", fileList[i].originFileObj);
@@ -119,9 +148,7 @@ const ModalAdd = ({ setShowModal, showModal }) => {
       },
       data: JSON.stringify(productFinal),
     });
-    const provider = new ethers.providers.Web3Provider(
-      window.ethereum
-    );
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
 
     const signer = provider.getSigner();
 
@@ -131,15 +158,23 @@ const ModalAdd = ({ setShowModal, showModal }) => {
       signer
     );
 
-    await contract.addItem(
-      res.data.IpfsHash,
-      ethers.utils.parseUnits(productFinal.price.toString()),
-      productFinal.name,
-      process.env.REACT_APP_IPFS_GATEWAY + productFinal.image,
-      productFinal.category,
-      productFinal.flag
-    );
-
+    try {
+      await contract.addItem(
+        res.data.IpfsHash,
+        ethers.utils.parseUnits(productFinal.price.toString()),
+        productFinal.name,
+        process.env.REACT_APP_IPFS_GATEWAY + productFinal.image,
+        productFinal.category,
+        productFinal.flag,
+        productFinal.currency
+      );
+      closeModal();
+    } catch (error) {
+      notification.error({
+        message: "Metamask rejected",
+      });
+    }
+    setLoading(false);
   };
 
   const prev = () => {
@@ -154,6 +189,7 @@ const ModalAdd = ({ setShowModal, showModal }) => {
       onCancel={closeModal}
       className="modal-create"
     >
+      {loading && <Loading />}
       <Steps current={current}>
         <Steps.Step title="Info" />
         <Steps.Step title="Photos" />
@@ -168,7 +204,7 @@ const ModalAdd = ({ setShowModal, showModal }) => {
         {current === 2 && (
           <Row gutter={64}>
             <Col span={24} md={12}>
-              <CarouselProduct images={images}  base64={true}  />
+              <CarouselProduct images={images} base64={true} />
             </Col>
             <Col span={24} md={12}>
               <ProductInfo {...product} hideButton={true} />

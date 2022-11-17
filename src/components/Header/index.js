@@ -65,6 +65,14 @@ const Header = () => {
         },
         {
           key: "4",
+          onClick: () => {
+            navigate("/transactions");
+          },
+          label: "Transactions",
+          icon: <ShoppingCartOutlined />,
+        },
+        {
+          key: "5",
           onClick: useDisconnect(),
           label: "Exit",
         },
@@ -87,9 +95,10 @@ const Header = () => {
             : "unset",
       }}
       id='header'
+      gutter={[0, 24]}
     >
       <ModalAdd showModal={showModal} setShowModal={setShowModal} />
-      <Col className="logo-container" span={4}>
+      <Col className="logo-container" span={24} md={6} lg={4}>
         <img
           alt="logo"
           src={logo}
@@ -98,21 +107,18 @@ const Header = () => {
           }}
         />
       </Col>
-      <Col className="center-vertically" span={16}>
+      <Col className="center-vertically"  span={20} md={16}>
         <Input.Search
           className="search-bar"
           placeholder="Search..."
           onSearch={search}
         />
       </Col>
-      <Col className="center-vertically" span={4}>
+      <Col className="center-vertically" span={4} md={2} lg={4}>
         <div className="metamask-container">
           {address ? (
             <Row>
-              <Col className="center-vertically icon-header" span={12}>
-                <ShoppingCartOutlined />
-              </Col>
-              <Col className="center-vertically icon-header" span={12}>
+              <Col className="center-vertically icon-header" span={24}>
                 <Dropdown overlay={menu} placement={"bottomRight"}>
                   <UserOutlined />
                 </Dropdown>

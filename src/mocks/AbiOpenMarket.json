@@ -215,6 +215,11 @@
                 "internalType": "bool",
                 "name": "status",
                 "type": "bool"
+            },
+            {
+                "internalType": "string",
+                "name": "priceType",
+                "type": "string"
             }
         ],
         "stateMutability": "view",
@@ -250,6 +255,11 @@
             {
                 "internalType": "string",
                 "name": "flag",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "priceType",
                 "type": "string"
             }
         ],
@@ -320,6 +330,30 @@
                 "internalType": "int256",
                 "name": "",
                 "type": "int256"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "priceType",
+                "type": "string"
+            },
+            {
+                "internalType": "uint256",
+                "name": "tokenId",
+                "type": "uint256"
+            }
+        ],
+        "name": "changePriceType",
+        "outputs": [
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
             }
         ],
         "stateMutability": "nonpayable",
@@ -531,6 +565,24 @@
             }
         ],
         "name": "rawFulfillRandomness",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "randomNumber",
+                "type": "uint256"
+            },
+            {
+                "internalType": "string",
+                "name": "objectId",
+                "type": "string"
+            }
+        ],
+        "name": "refund",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"

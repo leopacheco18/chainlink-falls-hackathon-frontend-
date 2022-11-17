@@ -77,3 +77,9 @@
     font-size: 1.5rem;
     color: rgba(0, 0, 0, 0.6);
   }
+
+  @media (max-width: 600px) {
+    .logo-container  {
+      text-align: center;
+    }
+  }
