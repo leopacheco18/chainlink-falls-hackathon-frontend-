@@ -31,3 +31,10 @@
 .about-us-card:hover h3 {
     color: white;
 }
+
+.team-member-img{
+    background-color: white;
+    border-radius: 50%;
+    height: 100%;
+    aspect-ratio: 1;
+}
