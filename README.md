@@ -57,7 +57,7 @@ You are all set.
 
 1. HomePage
 
-![1](https://user-images.githubusercontent.com/47113025/202577582-f76cf306-d428-4c97-a620-494f0997b04c.png)
+![1](https://user-images.githubusercontent.com/47113025/202723147-2ccf5849-7feb-4ebe-83a0-f077cd7c162c.png)
 
 
 2. Options after connect wallet
@@ -99,4 +99,22 @@ You are all set.
 
 8. Product detail as an owner
 
-![10](https://user-images.githubusercontent.com/47113025/202580715-d7f1dc3e-a154-48e4-b73e-ca6e1efcbb12.png)
+![10](https://user-images.githubusercontent.com/47113025/202723301-9a6d99d1-1d24-45ca-9d18-b522c862e0df.png)
+
+9. Product by Category
+
+  Choice the category
+  
+  ![11](https://user-images.githubusercontent.com/47113025/202723648-4c56d1cf-5c41-4ad0-924c-0c235aac4aa4.png)
+
+  Get all products of this category
+  
+  ![12](https://user-images.githubusercontent.com/47113025/202723706-214c5855-98e1-42f5-9418-87d5c4f94c9f.png)
+
+10. View all products and filters
+
+  ![13](https://user-images.githubusercontent.com/47113025/202723937-6c381c12-4c99-4722-a4b1-2eb8b4844c73.png)
+  
+  ![14](https://user-images.githubusercontent.com/47113025/202723949-06f16c7b-d962-4db4-8353-90eef09bc5b3.png)
+
+
