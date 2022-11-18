@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import AboutUs from "../../components/AboutUs";
 import BackgroundImage from "../../components/BackgroundImage";
 
@@ -32,7 +33,10 @@ const Home = () => {
 
             <BackgroundImage />
 
-            <Title  name="Lastest products" />
+<div className="d-flex vertically-center home-title">
+
+<Title  name="Lastest products" /> <Link to={'category/all-products'}>View all products</Link> 
+</div>
             <Products products={productList} />
 
             <Categories />

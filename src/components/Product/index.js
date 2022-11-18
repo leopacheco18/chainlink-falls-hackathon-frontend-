@@ -8,6 +8,7 @@ import { AiFillAppstore, AiFillPicture } from "react-icons/ai";
 import { MdOutlineToys, MdPets, MdPhoneIphone } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import logoMatic from "../../assets/image/logo-matic.png";
+import { useAddress } from "@thirdweb-dev/react";
 
 const { Meta } = Card;
 const CATEGORIES = [
@@ -39,8 +40,12 @@ const Product = ({
   status,
 }) => {
   const navigate = useNavigate();
+  const connectAddress= useAddress();
 
   const shortAddress = (address) => {
+    if(address === connectAddress ){
+      return 'Owned by you'
+    }
     return (
       address.slice(0, 4) +
       "..." +

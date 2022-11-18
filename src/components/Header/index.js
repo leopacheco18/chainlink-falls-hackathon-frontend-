@@ -78,6 +78,7 @@ const Header = () => {
   );
 
   const search = (value) => {
+    if(value)
     navigate("/search/" + value);
   };
 

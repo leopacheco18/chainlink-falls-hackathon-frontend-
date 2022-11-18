@@ -45,6 +45,8 @@ const ModalAdd = ({ setShowModal, showModal }) => {
     setShowModal(false);
     setCurrent(0);
     setProduct(productEmpty);
+    setFileList([])
+    setImages([])
   };
 
   const next = async () => {

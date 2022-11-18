@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import { useAddress } from "@thirdweb-dev/react";
 import { notification} from 'antd'
 import Transactions from "./pages/transactions/Transactions";
+import ProductByCategory from "./pages/productByCategory/ProductByCategory";
 
 const App = () => {
   const [ socket, setSocket ] = useState();
@@ -89,6 +90,7 @@ const App = () => {
             <Route path="/chat" element={<Chat socket={socket} pushMessage={pushMessage} setPushMessage={setPushMessage} />} />
             <Route path="/profile/:address" element={<Profile />} />
             <Route path="/search/:search" element={<Search />} />
+            <Route path="/category/:category" element={<ProductByCategory />} />
             <Route path="/product/:productId" element={<Product />} />
             <Route path="/transactions" element={<Transactions />} />
           </Routes>

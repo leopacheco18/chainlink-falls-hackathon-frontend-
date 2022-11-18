@@ -43,6 +43,9 @@ const ProductInfo = ({
   };
   const shortAddress = () => {
     if (owner) {
+      if(owner === address){
+        return 'Owned by you'
+      }
       return (
         owner.slice(0, 4) + "..." + owner.slice(owner.length - 4, owner.length)
       );
